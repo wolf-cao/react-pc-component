@@ -1,0 +1,44 @@
+@import '../../style/style.less';
+
+@messageCls: pft-message;
+
+.@{messageCls} {
+  position: absolute;
+  left: 50%;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #ccc;
+  padding: 10px 15px;
+  z-index: 999999;
+  background-color: #fff;
+  display: flex;
+  align-content: center;
+  align-items: center;
+
+  .iconfont {
+    padding-right: 7px;
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  &.@{messageCls}-info {
+    .iconfont {
+      color: @brand-blue;
+    }
+  }
+
+  &.@{messageCls}-success {
+    .iconfont {
+      color: @brand-green;
+    }
+  }
+
+  &.@{messageCls}-fail {
+    .iconfont {
+      color: @brand-red;
+    }
+  }
+
+  &.is-animate {
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}

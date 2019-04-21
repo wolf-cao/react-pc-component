@@ -1,0 +1,112 @@
+@import '../../style/style.less';
+
+@treeCls: pft-tree;
+
+.@{treeCls} {
+  position: relative;
+
+  li ul {
+    padding-left: 20px;
+  }
+
+  .@{treeCls}-group {
+    .@{treeCls}-section {
+      display: none;
+
+      &.@{treeCls}-node-isleaf {
+        .@{treeCls}-section-item {
+          .@{treeCls}-node-arrow {
+            visibility: hidden;
+          }
+        }
+      }
+
+      &.@{treeCls}-root {
+        padding-left: 0;
+      }
+
+      .@{treeCls}-section-item {
+        height: 32px;
+        line-height: 32px;
+        padding-left: 5px;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: pre;
+
+        &.@{treeCls}-node-expand {
+          .@{treeCls}-node-icon {
+            transform: rotate(90deg);
+          }
+
+          & + .@{treeCls}-group {
+            & > .@{treeCls}-section {
+              display: block;
+            }
+          }
+        }
+
+        .@{treeCls}-node-icon {
+          float: left;
+          line-height: 32px;
+          position: relative;
+          z-index: 9;
+          margin-right: 5px;
+          overflow: hidden;
+          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+          .@{treeCls}-node-arrow {
+            float: left;
+            color: @brand-primary;
+            font-size: 12px;
+            line-height: 32px;
+          }
+        }
+
+        .@{treeCls}-node_element {
+          position: relative;
+
+          .@{treeCls}-search-key {
+            em {
+              color: @brand-primary;
+            }
+          }
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: initial;
+          height: 32px;
+          line-height: 32px;
+          background-color: @brand-primary;
+          opacity: 0;
+          display: block;
+        }
+
+        &.@{treeCls}-node-active {
+          &:before {
+            opacity: 0.1;
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            height: 32px;
+            width: 4px;
+            margin-top: -32px;
+            background-color: @brand-primary;
+          }
+        }
+
+        &:hover {
+          &:before {
+            opacity: 0.1;
+          }
+        }
+      }
+    }
+  }
+}

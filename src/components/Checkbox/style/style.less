@@ -1,0 +1,74 @@
+@import '../../style/style.less';
+
+@checkboxCls: pft-checkbox;
+
+.@{checkboxCls} {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  .@{checkboxCls}-box {
+    &:before,
+    &:after {
+      content: '';
+      height: 1px;
+      border-top: 2px solid #fff;
+      position: absolute;
+      transform: scale(0, 0);
+      transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    &:before {
+      width: 6px;
+      left: 2px;
+      top: 9px;
+      transform: scale(0, 0) rotate(42deg);
+    }
+
+    &:after {
+      width: 11px;
+      left: 5px;
+      top: 7px;
+      transform: scale(0, 0) rotate(-55deg);
+    }
+  }
+
+  &.@{checkboxCls}-checked {
+    .@{checkboxCls}-box {
+      background: @brand-primary;
+      border: none;
+
+      &:before {
+        transform: scale(1, 1) rotate(42deg);
+      }
+
+      &:after {
+        transform: scale(1, 1) rotate(-55deg);
+      }
+    }
+  }
+
+  .@{checkboxCls}-box {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 1px solid @brand-main-line;
+    margin-right: 5px;
+    border-radius: 2px;
+    background-color: @brand-main-white;
+  }
+
+  .@{checkboxCls}-label {
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .@{checkboxCls}-element {
+    position: absolute;
+    left: -1000px;
+  }
+}

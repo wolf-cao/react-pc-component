@@ -1,0 +1,126 @@
+@import '../../style/style.less';
+
+@selectCls: pft-select1;
+
+.@{selectCls} {
+  position: relative;
+
+  .pf-table {
+    overflow: auto;
+    width: 100%;
+    table,
+    tr,
+    td,
+    th {
+      border: 1px solid #e8e8e8;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 14px;
+      height: 38px;
+      text-align: center;
+    }
+    th {
+      background: #fafafa;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.85);
+    }
+    td {
+      // border: 1px solid #e8e8e8;
+    }
+  }
+
+  .@{selectCls}-error {
+    font-size: @font-size-14;
+    padding-left: 0;
+    color: @brand-red;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    align-items: center;
+
+    .@{selectCls}-error-icon {
+      color: @brand-red;
+      font-size: @font-size-14;
+      line-height: @font-size-14;
+      margin-right: 5px;
+    }
+  }
+
+  .@{selectCls}-options {
+    position: absolute;
+    border: 1px solid #ddd;
+    width: 100%;
+    top: 34px;
+    left: 0;
+    box-sizing: border-box;
+    border-radius: @button-border-radius-xs;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px #eee;
+    z-index: 9999;
+
+    .@{selectCls}-option {
+      padding: 0 10px;
+      height: 32px;
+      line-height: 32px;
+      cursor: pointer;
+
+      &.@{selectCls}-option-selected {
+        background-color: #eef;
+      }
+
+      &:hover {
+        background-color: @brand-primary;
+        color: #fff;
+      }
+    }
+  }
+
+  .@{selectCls}-input-box {
+    border-radius: @button-border-radius-xs;
+    height: 32px;
+    line-height: 30px;
+    box-sizing: border-box;
+    background-image: none;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    &.@{selectCls}-is-error {
+      border-color: @brand-red;
+    }
+
+    &.@{selectCls}-input-focus {
+      box-shadow: 0 0 2px @brand-primary;
+      border-color: @brand-primary;
+    }
+
+    &:hover {
+      border-color: @brand-primary;
+    }
+
+    .@{selectCls}-input-value {
+      flex: 1;
+      padding: 0 10px;
+
+      &.@{selectCls}-input-placeholder {
+        color: @brand-sub-title;
+      }
+
+      .@{selectCls}-input {
+        position: absolute;
+        left: -2000px;
+      }
+    }
+
+    .@{selectCls}-input-arrow {
+      margin-right: 10px;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      &.@{selectCls}-input-arrow-down {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

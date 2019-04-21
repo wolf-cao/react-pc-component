@@ -1,0 +1,56 @@
+@import '../../style/style.less';
+
+@breadCls: pft-breadcrumbs;
+
+.@{breadCls} {
+  overflow: hidden;
+  padding-left: 10px;
+
+  .@{breadCls}-item {
+    float: left;
+    padding-right: 30px;
+    position: relative;
+
+    .@{breadCls}-split {
+      display: block;
+      position: absolute;
+      right: 11px;
+      top: 1px;
+      width: 10px;
+      height: 10px;
+
+      &:before,
+      &:after {
+        position: absolute;
+        content: '';
+        border-top: 2px solid @brand-primary;
+        width: 7px;
+        height: 2px;
+      }
+
+      &:before {
+        right: -1px;
+        top: 10px;
+        transform: rotate(-40deg);
+      }
+
+      &:after {
+        right: 0;
+        top: 6px;
+        transform: rotate(40deg);
+      }
+    }
+
+    &:last-child {
+      padding-right: 0;
+      color: #999;
+
+      .@{breadCls}-split {
+        &:before,
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

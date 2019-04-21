@@ -1,0 +1,119 @@
+@import '../../style/style.less';
+
+@radioCls: pft-radio;
+
+.@{radioCls}-wrapper {
+  position: relative;
+  display: inline-block;
+
+  .@{radioCls} {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    font-feature-settings: 'tnum';
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: sub;
+    outline: none;
+    cursor: pointer;
+
+    .@{radioCls}-inner {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 14px;
+      height: 14px;
+      background-color: #fff;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #d9d9d9;
+      border-radius: 100px;
+      transition: all 0.3s;
+    }
+
+    .@{radioCls}-inner::after {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 8px;
+      height: 8px;
+      // background-color: @brand-primary;
+      border-top: 0;
+      border-left: 0;
+      border-radius: 8px;
+      transform: scale(0, 0);
+      transform-origin: 8px 8px;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      content: ' ';
+    }
+  }
+
+  .@{radioCls}-input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  .@{radioCls}-text {
+    cursor: pointer;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+}
+
+.@{radioCls}-wrapper-active {
+  .@{radioCls} {
+    .@{radioCls}-inner {
+      width: 10px;
+      height: 10px;
+      border-width: 3px;
+      border-color: @brand-primary;
+    }
+
+    .@{radioCls}-inner::after {
+      transform: scale(1, 1);
+      opacity: 1;
+    }
+  }
+}
+
+.@{radioCls}-wrapper-disabled {
+  cursor: not-allowed;
+
+  .@{radioCls}-text {
+    cursor: not-allowed;
+    color: #d9d9d9;
+  }
+
+  .@{radioCls} {
+    .@{radioCls}-inner,
+    .@{radioCls}-inner::after {
+      cursor: not-allowed;
+      color: #d9d9d9;
+      border-color: #d9d9d9;
+    }
+    .@{radioCls}-inner::after {
+      // background-color: #d9d9d9;
+    }
+
+    .@{radioCls}-input {
+      cursor: not-allowed;
+    }
+  }
+}

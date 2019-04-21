@@ -1,0 +1,75 @@
+@import '../../style/style.less';
+
+@panelCls: pft-panel;
+
+.@{panelCls} {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+
+  .@{panelCls}-mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #333;
+    opacity: 0.5;
+    z-index: 998;
+  }
+
+  .@{panelCls}-container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+
+    .@{panelCls}-wrapper {
+      background-color: #fff;
+      position: relative;
+      z-index: 9999;
+      box-shadow: 0 0 20px #333;
+      border-radius: @button-border-radius-xs;
+
+      .@{panelCls}-content {
+        padding: 24px 15px;
+      }
+
+      .@{panelCls}-footer {
+        padding: 0 15px 24px;
+        text-align: center;
+      }
+
+      .@{panelCls}-header {
+        padding: 10px 15px 10px 30px;
+        font-size: 16px;
+        position: relative;
+        border-bottom: 1px solid @brand-main-line;
+
+        .@{panelCls}-close-icon {
+          position: absolute;
+          right: 15px;
+          cursor: pointer;
+
+          .iconfont {
+            font-size: 20px;
+            line-height: 20px;
+          }
+
+          &:hover {
+            .iconfont {
+              color: #999;
+            }
+          }
+        }
+      }
+    }
+  }
+}

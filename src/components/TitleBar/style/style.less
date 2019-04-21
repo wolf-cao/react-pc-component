@@ -1,0 +1,23 @@
+@import '../../style/style.less';
+
+@titleBarCls: pft-titlebar;
+
+.@{titleBarCls} {
+  display: flex;
+  height: 44px;
+  align-items: center;
+  padding: 0 24px;
+  background-color: @brand-gray;
+
+  .@{titleBarCls}-title {
+    flex: 1;
+  }
+
+  .@{titleBarCls}-extra {
+    .pft-switch {
+      .pft-button.pft-button-mini {
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import '../../style/style.less';
+
+@tabCls: pft-tab;
+
+.@{tabCls} {
+  .@{tabCls}-header {
+    background-color: @brand-main-white;
+    display: flex;
+    border-bottom: 1px solid @brand-primary;
+    box-sizing: border-box;
+    height: 58px;
+
+    .@{tabCls}-title {
+      height: 58px;
+      width: 150px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      justify-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      &.@{tabCls}-title-active {
+        border: 1px solid @brand-primary;
+        border-bottom: 1px solid @brand-main-line;
+      }
+    }
+  }
+
+  .@{tabCls}-content {
+    .@{tabCls}-item-list {
+      display: none;
+
+      &.@{tabCls}-item-list-active {
+        display: block;
+      }
+    }
+  }
+}

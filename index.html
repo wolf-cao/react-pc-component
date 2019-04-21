@@ -1,0 +1,23 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/font_811644_lbxvxysl95.css"
+    />
+    <title>
+      <%= htmlWebpackPlugin.options.title %>
+    </title>
+  </head>
+
+  <body>
+    <div id="App"></div>
+    <% for (var i = 0; i < htmlWebpackPlugin.files.chunks.length; i++) { %>
+    <script
+      type="text/javascript"
+      src="<%=htmlWebpackPlugin.files.chunks[i].entry %>"
+    ></script>
+    <% } %>
+  </body>
+</html>

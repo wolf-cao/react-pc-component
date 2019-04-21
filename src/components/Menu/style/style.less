@@ -1,0 +1,67 @@
+@import '../../style/style.less';
+
+@menusCls: pft-menu;
+
+.@{menusCls}s {
+  .@{menusCls}s-group {
+    clear: both;
+
+    .@{menusCls}-item {
+      position: relative;
+      float: left;
+      padding: 10px 20px;
+
+      &:hover {
+        .@{menusCls}-item-text {
+          + .@{menusCls}s-is-child {
+            display: block;
+          }
+        }
+      }
+
+      .@{menusCls}-item-text {
+        font-size: 16px;
+        text-align: center;
+        display: block;
+      }
+    }
+
+    &.@{menusCls}s-is-child {
+      display: none;
+      border: 1px solid #ddd;
+      position: absolute;
+      z-index: 999999;
+      width: 132px;
+      text-align: center;
+      left: 50%;
+      margin-left: -66px;
+      background-color: #fff;
+      padding: 5px 0;
+      margin-top: 10px;
+      box-shadow: 0 0 5px #ddd;
+      border-radius: 4px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        margin-left: -6px;
+        width: 8px;
+        height: 8px;
+        background-color: #fff;
+        transform: rotate(45deg);
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+      }
+
+      .@{menusCls}-item {
+        border: none;
+        float: none;
+        line-height: 40px;
+        height: 40px;
+        padding: 0;
+      }
+    }
+  }
+}

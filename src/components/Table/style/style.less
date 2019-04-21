@@ -1,0 +1,184 @@
+@import '../../style/style.less';
+@import '../../Pagination/style/style.less';
+
+@tableCls: pft-table;
+
+.@{tableCls}-planeBox {
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  border-radius: @button-border-radius-xs;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px #eee;
+  z-index: 9999;
+  word-break: keep-all;
+
+  ul {
+    padding: 10px 0;
+
+    li {
+      padding: 0 10px;
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+
+  .@{tableCls}-plane-footer {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+
+    .pft-button {
+      margin: 0 15px;
+    }
+  }
+}
+
+.@{tableCls} {
+  .@{tableCls}-wrapper {
+    position: relative;
+
+    &.@{tableCls}-is-fix {
+      .@{tableCls}-contrainer {
+        overflow: auto;
+        padding-bottom: 15px;
+      }
+    }
+
+    .@{tableCls}-body {
+      width: 100%;
+      border-collapse: collapse;
+
+      &.@{tableCls}-fixed-cols {
+        position: absolute;
+        top: 0;
+        z-index: 9;
+        width: auto;
+        border-right: 1px solid @brand-main-line;
+
+        .@{tableCls}-theader {
+          background-color: @brand-gray;
+        }
+
+        tr {
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+
+      .@{tableCls}-empty {
+        font-size: 14px;
+        text-align: center;
+        height: 100px;
+        border-bottom: 1px solid @brand-main-line;
+      }
+
+      .@{tableCls}-theader {
+        font-size: 14px;
+        border-bottom: 1px solid @brand-main-line;
+
+        th {
+          min-height: 38px;
+          line-height: 38px;
+          border-right: 1px solid @brand-main-line;
+          background-color: @brand-main-background1;
+
+          .@{tableCls}-th-wrapper {
+            display: flex;
+
+            .@{tableCls}-filterable {
+              float: right;
+              height: 14px;
+              padding: 12px 5px;
+              background-color: @brand-main-background1;
+              cursor: pointer;
+
+              &:hover,
+              &.@{tableCls}-filter-active {
+                background-color: @brand-main-background;
+
+                .iconfont {
+                  color: @brand-tip-text1;
+                }
+              }
+            }
+
+            .@{tableCls}-th-content {
+              position: relative;
+              overflow: hidden;
+              flex: 1;
+
+              &.@{tableCls}-th-operator {
+                cursor: pointer;
+
+                &:hover {
+                  background-color: @brand-main-background;
+                }
+              }
+
+              .@{tableCls}-sortable {
+                height: 16px;
+                width: 12px;
+                position: absolute;
+                top: 50%;
+                right: 5px;
+                margin-top: -7px;
+                margin-left: 15px;
+                cursor: pointer;
+
+                &.@{tableCls}-sort-up {
+                  .@{tableCls}-up-icon {
+                    color: @brand-primary;
+                  }
+                }
+
+                &.@{tableCls}-sort-down {
+                  .@{tableCls}-down-icon {
+                    color: @brand-primary;
+                  }
+                }
+
+                .iconfont {
+                  display: block;
+                  font-size: 12px;
+                  line-height: 8px;
+                }
+              }
+            }
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+
+      .@{tableCls}-tbody {
+        tr {
+          background-color: @brand-main-white;
+          border-bottom: 1px solid @brand-main-line;
+
+          &.@{tableCls}-tr-actived {
+            background-color: @brand-gray;
+          }
+
+          td {
+            font-size: 14px;
+            height: 38px;
+            text-align: center;
+            border-right: 1px solid @brand-main-line;
+
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .@{tableCls}-footer {
+    padding-top: 40px;
+  }
+}

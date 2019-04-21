@@ -1,0 +1,188 @@
+@import '../../style/style.less';
+
+@selectCls: pft-select;
+
+.@{selectCls}-dialog-wrapper {
+  .@{selectCls}-option-list {
+    &.fn-hide {
+      display: none;
+    }
+
+    .@{selectCls}-option-group {
+      box-sizing: border-box;
+      border-radius: @button-border-radius-xs;
+      background-color: #fff;
+      box-shadow: 0px 2px 5px #eee;
+      word-break: keep-all;
+      border: 1px solid #ddd;
+      margin-right: -1px;
+      overflow: auto;
+      display: inline-block;
+      height: 180px;
+      min-width: 110px;
+
+      .@{selectCls}-section {
+        position: relative;
+        padding: 0 10px;
+        height: 32px;
+        line-height: 32px;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: pre;
+
+        .@{selectCls}-section-title {
+          float: left;
+          padding-right: 5px;
+        }
+
+        > .iconfont {
+          float: right;
+          line-height: 32px;
+        }
+
+        &.@{selectCls}-section-enter-actived {
+          background-color: @brand-light-orange;
+        }
+
+        &:hover {
+          background-color: @brand-light-orange;
+        }
+      }
+    }
+  }
+
+  .@{selectCls}-options {
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: @button-border-radius-xs;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px #eee;
+    z-index: 9999;
+    word-break: keep-all;
+
+    .@{selectCls}-option {
+      padding: 0 10px;
+      height: 32px;
+      line-height: 32px;
+      cursor: pointer;
+
+      &.@{selectCls}-option-selected {
+        background-color: #eef;
+      }
+
+      &:hover {
+        background-color: @brand-primary;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.@{selectCls} {
+  position: relative;
+
+  .@{selectCls}-error,
+  .@{selectCls}-explain {
+    font-size: @font-size-12;
+    padding-left: 0;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    align-items: center;
+
+    .@{selectCls}-error-icon {
+      font-size: @font-size-12;
+      line-height: @font-size-12;
+      margin-right: 5px;
+    }
+  }
+
+  .@{selectCls}-explain {
+    color: @brand-sub-title;
+  }
+
+  .@{selectCls}-error {
+    color: @brand-red;
+
+    .@{selectCls}-error-icon {
+      color: @brand-red;
+    }
+  }
+
+  .@{selectCls}-input-box {
+    border-radius: @button-border-radius-xs;
+    height: 32px;
+    line-height: 30px;
+    box-sizing: border-box;
+    background-image: none;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #ddd;
+    position: relative;
+
+    &.@{selectCls}-is-error {
+      border-color: @brand-red;
+    }
+
+    &.@{selectCls}-input-focus {
+      box-shadow: 0 0 2px @brand-primary;
+      border-color: @brand-primary;
+    }
+
+    &:hover {
+      border-color: @brand-primary;
+    }
+
+    .@{selectCls}-input-value {
+      padding: 0 30px 0 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+
+      &.@{selectCls}-input-placeholder {
+        color: @brand-placeholder;
+      }
+
+      .@{selectCls}-input {
+        position: absolute;
+        left: -20000px;
+      }
+    }
+
+    .@{selectCls}-input-arrow {
+      position: absolute;
+      right: 0;
+      top: 0;
+      line-height: 32px;
+      height: 100%;
+      margin-right: 10px;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      &.@{selectCls}-input-arrow-down {
+        transform: rotate(180deg);
+      }
+
+      &.@{selectCls}-input-clear {
+        &:hover {
+          .delete-icon {
+            display: block;
+          }
+
+          .select-icon {
+            display: none;
+          }
+        }
+      }
+
+      .iconfont {
+        line-height: 32px;
+      }
+
+      .delete-icon {
+        display: none;
+      }
+    }
+  }
+}

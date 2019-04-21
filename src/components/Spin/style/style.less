@@ -1,0 +1,90 @@
+@import '../../style/style.less';
+
+@SpinPreCls: pft-spin;
+
+.@{SpinPreCls} {
+  &.@{SpinPreCls}-net-wrapper {
+    position: relative;
+
+    .@{SpinPreCls}-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+
+      .@{SpinPreCls}-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -12px;
+        margin-top: -12px;
+        font-size: 24px;
+        line-height: 24px;
+        color: @brand-primary;
+        animation: animate-rotate 0.8s linear infinite;
+      }
+    }
+
+    .@{SpinPreCls}-content {
+      &.@{SpinPreCls}-focus {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .@{SpinPreCls}-icon-box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    z-index: 999999;
+    transform: translateX(-47%) translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: animate-rotate 0.8s linear infinite;
+
+    .@{SpinPreCls}-icon {
+      font-size: 24px;
+      line-height: 24px;
+      color: @brand-primary;
+    }
+  }
+
+  .@{SpinPreCls}-mask {
+    background: #bbb;
+    opacity: 0.1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 999998;
+  }
+}
+
+@keyframes animate-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../style/style.less';
+
+@switchCls: pft-switch;
+
+.@{switchCls} {
+  .pft-button {
+    &:first-child {
+      border-top-left-radius: @button-border-radius-xs;
+      border-bottom-left-radius: @button-border-radius-xs;
+    }
+
+    &:last-child {
+      border-top-right-radius: @button-border-radius-xs;
+      border-bottom-right-radius: @button-border-radius-xs;
+    }
+  }
+}
